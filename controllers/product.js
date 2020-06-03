@@ -135,7 +135,7 @@ exports.getAllProducts = (req, res) => {
   let limit = req.query.limit ? ParseInt(req.query.limit) : 8;
   Product.find()
     .select('-photo')
-    .sort([[sortBy, 'asc']])
+    .sort([[_.sortBy, 'asc']])
     .limit(limit)
     .exec((err, products) => {
       if (err) {
